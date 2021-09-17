@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습3-2</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script>
+	function addItem() {
+		let list=document.getElementById("todolist");
+		let todo = document.getElementById("item");
+		let listitem = document.createElement("li");
+		listitem.className = "d-flex list-group-item list-group-item-action list-group-item-warning";
+		let xbtn = document.createElement("button");
+
+		xbtn.className="btn-close ms-auto";
+		
+		xbtn.onclick = function(e) {
+			let pnode = e.target.parentNode;
+			list.removeChild(pnode);
+		}
+		listitem.innerText=todo.value;
+		listitem.appendChild(xbtn);
+		
+		list.appendChild(listitem);
+		
+		todo.value="";
+		todo.focus();
+	}
+	</script>
+</head>
+<body>
+	<div class="container bg-warning shadow mx-auto mt-5 p-5 w-75">
+		<h2>My ToDo App</h2>
+		<hr>
+		<div class="input-group">
+			<input id="item" class="form-control" type="text" placeholder="할일을 입력하세요..">
+			<button type="button" class="btn btn-primary" onClick="addItem()">할일 추가</button>
+		</div>
+		<hr>
+		<ul id="todolist" class="list-group">
+		</ul>
+	</div>
+</body>
+</html>
