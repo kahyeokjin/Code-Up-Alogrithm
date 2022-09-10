@@ -1,0 +1,8 @@
+def solution(price, money, count):
+    updatePrice=0
+    for i in range(1,count+1):
+        updatePrice += i*price
+    if updatePrice > money:
+        return updatePrice-money
+    else:
+        return 0
