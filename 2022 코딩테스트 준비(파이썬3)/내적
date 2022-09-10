@@ -1,0 +1,7 @@
+def solution(a, b):
+    c=len(a)
+    result=0
+    for i in range (c):
+        result += a[i]*b[i]
+    return result
+        
